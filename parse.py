@@ -1,4 +1,4 @@
-#simple collbrative filtering, 
+#simple collbrative filtering,
 # step 1 : Find out unique customers
 # step 2 : How many times have they bough a certain product
 # step 3 : find out similar customers ( clustering -> age and other features )
@@ -31,8 +31,12 @@ unique_customer_codes = customer_codes.drop_duplicates()
 print "[Parse] Unique customer count", unique_customer_codes.count()
 
 print "[Parse][Step 2] How many times have they bough a certain product"
-customer_with_product_array=train_v2.loc[:,["ncodpers","ind_ahor_fin_ult1","ind_aval_fin_ult1"]]
-print customer_with_product_array
+customer_with_product_array=train_v2.loc[:,["ncodpers",
+					"ind_ahor_fin_ult1","ind_aval_fin_ult1",
+					"ind_cco_fin_ult1","ind_cder_fin_ult1",
+					"ind_cno_fin_ult1","ind_ctju_fin_ult1"
+					]]
+print customer_with_product_array.duplicated()
 
 print "[Parse][Step 3] Find out similar customers ( clustering -> age and other features )"
 # cluster = KMeans(n_clusters=10, random_state=20)
