@@ -31,9 +31,10 @@ unique_customer_codes = customer_codes.drop_duplicates()
 print "[Parse] Unique customer count", unique_customer_codes.count()
 
 print "[Parse][Step 2] How many times have they bough a certain product"
+customer_with_product_array=train_v2.loc[:,["ncodpers","ind_ahor_fin_ult1","ind_aval_fin_ult1"]]
+print customer_with_product_array
 
-
-print "[Parse][Step 3] find out similar customers ( clustering -> age and other features )"
+print "[Parse][Step 3] Find out similar customers ( clustering -> age and other features )"
 # cluster = KMeans(n_clusters=10, random_state=20)
 # # result = cluster.fit_predict(unique_customer_code)
 # print "Cluster Centers"
