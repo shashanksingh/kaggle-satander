@@ -25,12 +25,15 @@ from sklearn.cross_validation import train_test_split
 print "[Parse][Step 1] Find out unique customers"
 print "[Parse] Load CSV"
 train_v2 = pd.read_csv("train_ver2.csv",header=0, nrows=1262000)#limited
-# train_v2 = pd.read_csv("train_ver2.csv",header=0)
-
 customer_codes = train_v2.loc[:,["ncodpers"]]
 unique_customer_codes = customer_codes.drop_duplicates()
 # print "[Parse] Customer Code ", unique_customer_codes
 print "[Parse] Unique customer count", unique_customer_codes.count()
+
+print "[Parse][Step 2] How many times have they bough a certain product"
+
+
+print "[Parse][Step 3] find out similar customers ( clustering -> age and other features )"
 # cluster = KMeans(n_clusters=10, random_state=20)
 # # result = cluster.fit_predict(unique_customer_code)
 # print "Cluster Centers"
