@@ -6,7 +6,7 @@ import datetime
 
 counter = 0
 with open('reccomendation.csv', 'a') as f:
-  f.write('ncodpers, added_products\n')
+  f.write('ncodpers,added_products\n')
   for df in pd.read_csv('train_ver2.csv',header=0,  chunksize=10000):
     customer_with_product_array=df.loc[:,["ncodpers",
           "ind_ahor_fin_ult1","ind_aval_fin_ult1","ind_cco_fin_ult1",
@@ -29,7 +29,7 @@ with open('reccomendation.csv', 'a') as f:
       # print series_to_write, dataframe_to_write
       # dataframe_to_write.add(series_to_write)
       # series_to_write.to_csv(f,header=False,sep=',',index=False)
-      f.write(str(int(column[0]))+", ind_nomina_ult1\n")
+      f.write(str(int(column[0]))+",ind_nomina_ult1\n")
     # print dataframe_to_write
 
     print "[SIMPLE_NEXT_PRODUCT_RECCOMENDER][CSV]",dataframe_to_write.to_csv(f,header=False)
